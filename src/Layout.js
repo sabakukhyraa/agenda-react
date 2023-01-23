@@ -1,4 +1,6 @@
 import { Routes, Route } from "react-router-dom";
+import { daysThisYear } from "./js/days";
+import {diary} from "./helpers/diary"
 import Sidebar from "./components/Sidebar";
 import Home from "./pages/Home";
 import Agenda from "./pages/Agenda";
@@ -13,7 +15,13 @@ export default function Layout() {
     .toLowerCase()
     .replaceAll(" ", "-");
 
-  
+  daysThisYear.forEach((day) => {
+    diary[day] = {
+      diaryText: "",
+      todoList : []
+    }
+  })
+
   return (
     <div className="flex justify-end">
       <Sidebar today={today} />

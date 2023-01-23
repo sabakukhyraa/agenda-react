@@ -9,7 +9,7 @@
   }
 
   h1 {
-    @apply text-5xl font-semibold;
+    @apply text-3xl lg:text-5xl font-semibold;
   }
 
   .animation {
@@ -18,6 +18,10 @@
 
   .grow-animation {
     @apply animation hover:scale-105;
+  }
+
+  .base-btn {
+    @apply px-8 pb-3 pt-5 rounded-2xl bg-pink-700 text-pink-100 shadow-lg text-3xl lg:text-5xl grow-animation;
   }
 
   .sidebar li {

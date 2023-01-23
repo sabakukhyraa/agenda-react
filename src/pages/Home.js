@@ -10,7 +10,7 @@ export default function Home({ today }) {
           or whatever you want.
         </p>
         <NavLink to={`/agenda/${today}`} className="inline-block">
-          <h1 className="px-8 pb-3 pt-5 rounded-2xl bg-pink-700 text-pink-100 shadow-lg text-5xl grow-animation">
+          <h1 className="base-btn">
             Start to write!
           </h1>
         </NavLink>
