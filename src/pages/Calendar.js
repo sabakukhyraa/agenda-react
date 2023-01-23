@@ -9,7 +9,7 @@ export default function Calendar() {
         <li key={index}>
           <Link
             className="px-4 py-2 rounded-xl shadow-xl bg-pink-300 text-xl block grow-animation"
-            to={`agenda/${day.toLowerCase().replaceAll(" ", "-")}`}
+            to={`/agenda/${day.toLowerCase().replaceAll(" ", "-")}`}
           >
             {day}
           </Link>
@@ -29,7 +29,7 @@ export default function Calendar() {
             <li key={index}>
               <Link
                 className="px-4 py-2 rounded-xl shadow-xl bg-pink-300 text-xl block"
-                to={`agenda/${day.toLowerCase().replaceAll(" ", "-")}`}
+                to={`/agenda/${day.toLowerCase().replaceAll(" ", "-")}`}
               >
                 {day}
               </Link>
@@ -44,11 +44,11 @@ export default function Calendar() {
       <div className="flex flex-col items-center lg:flex-row lg:justify-between">
         <h1>Calendar</h1>
         <div>
-          <label className="text-xl" for="search">
+          <label className="text-xl" htmlFor="search">
             Search:{" "}
           </label>
           <input
-            className="outline-none w-full lg:w-auto bg-red-200 shadow-lg rounded-xl text-2xl font-semibold px-2 py-1"
+            className="w-full lg:w-auto bg-red-200 shadow-lg rounded-xl text-2xl font-semibold px-2 py-1"
             type="text"
             id="search"
             onChange={(e) => searchEngine(e.target.value)}

@@ -27,9 +27,9 @@ export default function Layout() {
       <Sidebar today={today} />
       <div className="flex w-4/5 p-6 lg:p-12">
         <Routes>
-          <Route path="/" element={<Home today={today} />} />
-          <Route path="/agenda/:id" element={<Agenda />} />
+          <Route exact path="/" element={<Home today={today} />} />
           <Route path="/calendar" element={<Calendar />} />
+          <Route path="/agenda/:id" element={<Agenda />} />
           <Route path="/settings" element={<Settings />} />
         </Routes>
       </div>

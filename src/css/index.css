@@ -12,6 +12,11 @@
     @apply text-3xl lg:text-5xl font-semibold;
   }
 
+  textarea,
+  input {
+    @apply !outline-none;
+  }
+
   .animation {
     @apply transition-all duration-300 ease-in-out;
   } 
@@ -38,7 +43,7 @@
 
 
 .active {
-  color: rgb(239, 68, 68) !important;
+  color: rgb(236 72 153) !important;
   font-weight: 700;
   transform: scale(1.05);
 }
