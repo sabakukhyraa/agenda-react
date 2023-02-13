@@ -1,0 +1,36 @@
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  /* Center slide text vertically */
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  padding: 4rem;
+}
+
+.swiper-pagination-bullets {
+  display: flex;
+  justify-content: center;
+  top: 8px !important;
+  bottom: auto !important;
+}
+
+.swiper-pagination-bullet {
+  width: 32px;
+  height: 32px;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgb(236 72 153);
+  opacity: 1;
+  background: rgb(249 168 212);
+}
+
+.swiper-pagination-bullet-active {
+  color: #fff;
+  background: rgb(236 72 153);
+}
