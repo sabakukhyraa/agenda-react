@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 
 export default function Home({ today }) {
   return (
-    <div className="w-full flex flex-col items-center text-center lg:gap-32">
+    <div className="flex flex-col items-center w-full gap-6 text-center lg:gap-32">
       <section className="space-y-6">
         <h1>This is your Agenda!</h1>
         <p className="text-2xl">

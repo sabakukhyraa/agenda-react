@@ -1,5 +1,5 @@
 import { Routes, Route } from "react-router-dom";
-import { useState, createContext, useEffect } from "react";
+import { useState, createContext } from "react";
 import { daysThisYear } from "./js/days";
 import Sidebar from "./components/Sidebar";
 import Home from "./pages/Home";
