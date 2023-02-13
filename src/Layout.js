@@ -1,13 +1,17 @@
 import { Routes, Route } from "react-router-dom";
+import { useState, createContext, useEffect } from "react";
 import { daysThisYear } from "./js/days";
-import {diary} from "./helpers/diary"
 import Sidebar from "./components/Sidebar";
 import Home from "./pages/Home";
 import Agenda from "./pages/Agenda";
 import Calendar from "./pages/Calendar";
 import Settings from "./pages/Settings";
-export default function Layout() {
 
+export const DiaryContext = createContext({
+  diary: {},
+});
+
+export default function Layout() {
   const date = new Date();
   const today = date
     .toUTCString()
@@ -15,24 +19,30 @@ export default function Layout() {
     .toLowerCase()
     .replaceAll(" ", "-");
 
+  const diary = {};
+
   daysThisYear.forEach((day) => {
-    diary[day] = {
+    diary[day.toLowerCase()] = {
       diaryText: "",
-      todoList : []
-    }
-  })
+      todoList: [],
+    };
+  });
+
+  const [reactiveDiary, setReactiveDiary] = useState(JSON.parse(localStorage.getItem("diaryData")) || diary); //send this reactiveDiary to localStorage
 
   return (
     <div className="flex justify-end">
-      <Sidebar today={today} />
-      <div className="flex w-4/5 p-6 lg:p-12">
-        <Routes>
-          <Route exact path="/" element={<Home today={today} />} />
-          <Route path="/calendar" element={<Calendar />} />
-          <Route path="/agenda/:id" element={<Agenda />} />
-          <Route path="/settings" element={<Settings />} />
-        </Routes>
-      </div>
+      <DiaryContext.Provider value={{ reactiveDiary, setReactiveDiary }}>
+        <Sidebar today={today} />
+        <div className="flex w-4/5 p-6 lg:p-12">
+          <Routes>
+            <Route exact path="/" element={<Home today={today} />} />
+            <Route path="/calendar" element={<Calendar />} />
+            <Route path="/agenda/:id" element={<Agenda today={today} />} />
+            <Route path="/settings" element={<Settings />} />
+          </Routes>
+        </div>
+      </DiaryContext.Provider>
     </div>
   );
 }
