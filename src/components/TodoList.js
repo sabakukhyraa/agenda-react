@@ -81,7 +81,7 @@ export default function TodoList({ localTodoList, callback, type }) {
           </div>
         )}
         <div className="w-full rounded-2xl">
-          <ul className="flex flex-col gap-6">{todoListMapper}</ul>
+          <ul className="flex flex-col gap-6 text-3xl text-center">{todoListMapper.length > 0 ? todoListMapper : "There is nothing you should do today!"}</ul>
         </div>
       </div>
     </div>
