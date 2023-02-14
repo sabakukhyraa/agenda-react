@@ -18,6 +18,10 @@ export default function Layout() {
     .slice(5, 16)
     .toLowerCase()
     .replaceAll(" ", "-");
+  const Today = date
+    .toUTCString()
+    .slice(5, 16)
+    .replaceAll(" ", "-");
 
   const diary = {};
 
@@ -37,7 +41,7 @@ export default function Layout() {
         <div className="flex w-4/5 p-6 lg:p-12">
           <Routes>
             <Route exact path="/" element={<Home today={today} />} />
-            <Route path="/calendar" element={<Calendar />} />
+            <Route path="/calendar" element={<Calendar today={Today} />} />
             <Route path="/agenda/:id" element={<Agenda today={today} />} />
             <Route path="/settings" element={<Settings />} />
           </Routes>
