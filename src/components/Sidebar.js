@@ -7,11 +7,11 @@ import SettingsIcon from "./icons/SettingsIcon";
 export default function Sidebar({today}) {
 
   return (
-    <aside className="fixed left-0 top-0 h-auto w-1/5 bg-red-200 rounded-r-3xl flex items-center justify-center py-12 my-12">
+    <aside className="fixed top-0 left-0 flex items-center justify-center w-1/5 h-auto py-12 my-12 bg-pink-200 rounded-r-3xl">
       <nav className="text-center">
         <ul className="space-y-10 sidebar">
           <li>
-            <h1 className="font-extrabold text-pink-500 lg:text-4xl text-sm lg:py-3">Your Agenda!</h1> 
+            <h1 className="text-sm font-extrabold text-pink-500 lg:text-4xl lg:py-3">Your Agenda!</h1> 
             {/* TODO: Burası max-character: 30lu bir input olacak ve localStorage'da tutulacak */}
           </li>
           <li>
@@ -25,7 +25,7 @@ export default function Sidebar({today}) {
             <NavLink to={`/agenda/${today}`}>
               <AgendaIcon />
               <span>Agenda</span>
-              <span className="absolute -bottom-4 left-1/2 text-pink-500 text-base">
+              <span className="absolute text-base text-pink-500 -bottom-4 left-1/2">
                 (today)
               </span>
             </NavLink>
