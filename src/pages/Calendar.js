@@ -13,7 +13,7 @@ import "../css/swiper.css";
 // import required modules
 import { Pagination } from "swiper";
 
-export default function Calendar() {
+export default function Calendar({ today }) {
   const pagination = {
     clickable: true,
     renderBullet: function (index, className) {
@@ -26,7 +26,7 @@ export default function Calendar() {
       return (
         <li key={index}>
           <Link
-            className="block px-4 py-2 text-xl bg-pink-300 shadow-xl rounded-xl grow-animation"
+            className={`block px-4 py-2 text-xl bg-pink-300 shadow-xl rounded-xl grow-animation ${(day === today) && "!bg-pink-500 text-pink-100"}`}
             to={`/agenda/${day.toLowerCase().replaceAll(" ", "-")}`}
           >
             {day.replaceAll("-", " ")}
@@ -44,6 +44,14 @@ export default function Calendar() {
     </SwiperSlide>
   ));
 
+  let thisMonthIndex;
+
+  monthsContainsDays.forEach((month, index) => {
+    if(month.includes(today)){
+      thisMonthIndex = index
+    }
+  });
+
   return (
     <div className="flex flex-col w-full gap-4">
       <h1>Calendar</h1>
@@ -51,6 +59,7 @@ export default function Calendar() {
       <Swiper
         pagination={pagination}
         modules={[Pagination]}
+        initialSlide={thisMonthIndex}
         className="mySwiper"
       >
         {monthList}
