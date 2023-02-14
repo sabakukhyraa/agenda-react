@@ -60,7 +60,7 @@ export default function Calendar({ today }) {
         pagination={pagination}
         modules={[Pagination]}
         initialSlide={thisMonthIndex}
-        className="mySwiper"
+        grabCursor={true}
       >
         {monthList}
       </Swiper>
